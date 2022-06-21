@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<head>
+<title>Belajar</title>
+<link rel="stylesheet" href="style.css">
+ <script LANGUAGE="JavaScript">
+//PERHITUNGAN DENGAN NILAI RESIDU
+ function cek(){
+ if(form.perolehan.value == "" || form.residu.value == "" || form.usia.value == ""){
+ alert("Data kosong");
+ exit;}
+ }
+
+ function hitung() {
+ cek();
+ a=eval(form.perolehan.value);
+ b=eval(form.residu.value);
+ c=eval(form.usia.value);
+ var x = 0;
+ for(counter = c; counter > 0; counter--){;
+ var x = x + counter}
+ d=(a-b)*(c/x);
+ form.total.value = d;
+ }
+ function cetak1(){
+ var a=document.getElementById("form").perolehan.value;
+ var b=document.getElementById("form").residu.value;
+ var c=document.getElementById("form").usia.value;
+ var cetak=document.getElementById("cetak1");
+ if (a!="" || b!="" || c!="")
+   {
+       cetak.innerHTML="Penyusutan = (Harga Perolehan - Harga Residu) x [(n / (n + (n - 1) + (n - 2) + ...)]";
+   }
+}
+function cetak2(){
+ var a=document.getElementById("form").perolehan.value;
+ var b=document.getElementById("form").residu.value;
+ var c=document.getElementById("form").usia.value;
+ var x = 0;
+ for(counter = c; counter > 0; counter--){
+ var x = x + counter};
+ var d=document.getElementById("form").total.value;
+ var cetak=document.getElementById("cetak2");
+ if (a!="" || b!="" || c!="" || d!="")
+   {
+       cetak.innerHTML="Penyusutan = ("+a+" - "+b+") x ("+c+" / "+x+") = "+d;
+   }
+}
+ function reset() {
+ form.perolehan.value="";
+ form.residu.value="";
+ form.usia.value="";
+ form.total.value = "";
+ }
+ </script>
+</head>
+<body>
+	<center><h1>Perhitungan Metode Sum Of the Year</h1><br></center>
+<!--INPUT DENGAN RESIDU-->
+<center><table border="0">
+	<tr>
+ <form id="form" name="form" onsubmit="return false">
+ <td>Hasil Perolehan</td>
+ <td><input type=text name="perolehan" size=9></td></tr>
+ <tr>
+ 	<td>
+ Harga Residu</td>
+ <td><input name="residu" type="text" size="9" /></td><tr>
+ 	<tr>
+ 		<td>
+ Usia Ekonomis</td>
+ <td><input name="usia" type="text" size="9" /></td></tr>
+ <tr>
+ <td>Hasil</td> <td><input type="text" value="" name="total" size="9" readonly></td></tr>
+ <tr><div class="frame">
+ 	<td align="right"><button class="custom-btn btn-3" name=submit onclick="hitung() || cetak1() || cetak2()">Hitung</button></td>
+ <td>
+ <button class="custom-btn btn-3" name=submit onclick="reset()">Clear</button></td></tr>
+ </form></center></table><hr>
+ <p id="cetak1"></p>
+ <p id="cetak2"></p>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<head>
+<title>Belajar</title>
+<link rel="stylesheet" href="style.css">
+ <script LANGUAGE="JavaScript">
+//PERHITUNGAN DENGAN NILAI RESIDU
+ function cek(){
+ if(form.perolehan.value == "" || form.residu.value == ""  || form.umur.value == ""){
+ alert("Data kosong");
+ exit;}
+ }
+
+ function hitung() {
+ cek();
+ a=eval(form.perolehan.value);
+ b=eval(form.residu.value);
+ c=eval(form.umur.value);
+ d=(a-b)/c
+ form.total.value = d;
+ }
+ function cetak1(){
+ var a=document.getElementById("form").perolehan.value;
+ var b=document.getElementById("form").residu.value;
+ var c=document.getElementById("form").umur.value;
+ var cetak=document.getElementById("cetak1");
+ if (a!="" || b!="" || c!="")
+   {
+       cetak.innerHTML="Penyusutan = (Harga Perolehan - Nilai Residu) / Umur Ekonomis";
+   }
+}
+function cetak2(){
+ var a=document.getElementById("form").perolehan.value;
+ var b=document.getElementById("form").residu.value;
+ var c=document.getElementById("form").umur.value;
+ var d=document.getElementById("form").total.value;
+ var cetak=document.getElementById("cetak2");
+ if (a!="" || b!="" || c!="")
+   {
+       cetak.innerHTML="Penyusutan = ("+a+" - "+b+")"+" / "+c+" = "+d;
+   }
+}
+ function reset() {
+ form.perolehan.value="";
+ form.residu.value="";
+ form.umur.value="";
+ form.total.value = "";
+ }
+
+ //PERHITUNGAN TANPA NILAI RESIDU
+ function cek2(){
+ if(form2.perolehan2.value == "" || form2.umur2.value == ""){
+ alert("Data kosong");
+ exit;}
+ }
+
+ function hitung2() {
+ cek2();
+ a=eval(form2.perolehan2.value);
+ b=eval(form2.umur2.value);
+ c=a/b
+ form2.total2.value = c;
+ }
+ function cetak3(){
+ var a=document.getElementById("form2").perolehan2.value;
+ var b=document.getElementById("form2").umur2.value;
+ var cetak=document.getElementById("cetak3");
+ if (a!="" || b!="")
+   {
+       cetak.innerHTML="Penyusutan = (Harga Perolehan - Nilai Residu) / Umur Ekonomis";
+   }
+}
+function cetak4(){
+ var a=document.getElementById("form2").perolehan2.value;
+ var b=document.getElementById("form2").umur2.value;
+ var c=document.getElementById("form2").total2.value;
+ var cetak=document.getElementById("cetak4");
+ if (a!="" || b!="")
+   {
+       cetak.innerHTML="Penyusutan = "+a+" / "+b+" = "+c;
+   }
+}
+ function reset2() {
+ form2.perolehan2.value="";
+ form2.umur2.value="";
+ form2.total2.value = "";
+ }
+ </script>
+</head>
+<body>
+  <div class="isi">
+    <h1><center>Perhitungan Metode Straight Line</center></h1><br><br>
+<!--INPUT DENGAN RESIDU-->
+<h2>Perhitungan Menggunakan Nilai Residu</h2>
+<center><table border="0">
+  <tr>
+    <td>
+ <form id="form" name="form" onsubmit="return false">
+ Hasil Perolehan</td>
+ <td><input type=text name="perolehan" size=9></td></div></tr>
+ <tr>
+ <td>Nilai Residu</td>
+ <td><input name="residu" type="text" size="9" /></td></tr>
+ <tr>
+ <td>Umur Ekonomis</td>
+ <td><input name="umur" type="text" size="9" /></td></tr>
+ <tr><td>Hasil</td> <td><input type="text" value="" name="total" size="9" readonly></td></tr>
+ <tr>
+ <td align="right"><div class="frame">
+  <button class="custom-btn btn-3" name=submit onclick="hitung() || cetak1() || cetak2()">Hitung</button></td>
+ <td><button class="custom-btn btn-3" name=submit onclick="reset()">Clear</button></div></td></tr>
+ </form></table><br>
+ <p id="cetak1"></p>
+ <p id="cetak2"></p><hr>
+
+<!--INPUT TANPA RESIDU-->
+<h2>Perhitungan Tanpa Nilai Residu</h2>
+ <table>
+  <tr>
+ <td><form id="form2" name="form2" onsubmit="return false"></td><tr>
+ <td>Hasil Perolehan</td>
+ <td><input type=text name="perolehan2" size=9></td></tr>
+ <tr><td>
+ Umur Ekonomis</td>
+ <td><input name="umur2" type="text" size="9" /></td></tr>
+ <tr><td>Hasil</td> <td><input type="text" value="" name="total2" size="9" readonly></td></tr>
+ <tr><td align="right"><div class="frame">
+ <button class="custom-btn btn-3" name=submit onclick="hitung2() || cetak3() || cetak4()">Hitung</button></td>
+ <td><button class="custom-btn btn-3" name=submit onclick="reset2()">Clear</button></div></td></tr>
+ </form></table></center><br>
+
+ <p id="cetak3"></p>
+ <p id="cetak4"></p><hr>
+
+</body>
+    </div>
+</html>

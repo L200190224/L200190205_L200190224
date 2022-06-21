@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<head>
+<title>Belajar</title>
+<link rel="stylesheet" href="style.css">
+ <script LANGUAGE="JavaScript">
+//PERHITUNGAN DENGAN NILAI RESIDU
+ function cek(){
+ if(form.perolehan.value == "" || form.umur.value == ""){
+ alert("Data kosong");
+ exit;}
+ }
+
+ function hitung() {
+ cek();
+ a=eval(form.perolehan.value);
+ b=eval(form.umur.value);
+ c=(a/b)*2
+ form.total.value = c;
+ }
+ function cetak1(){
+ var a=document.getElementById("form").perolehan.value;
+ var b=document.getElementById("form").umur.value;
+ var cetak=document.getElementById("cetak1");
+ if (a!="" || b!="")
+   {
+       cetak.innerHTML="Penyusutan = (Harga Perolehan / Umur Ekonomis) x 2";
+   }
+}
+function cetak2(){
+ var a=document.getElementById("form").perolehan.value;
+ var b=document.getElementById("form").umur.value;
+ var c=document.getElementById("form").total.value;
+ var cetak=document.getElementById("cetak2");
+ if (a!="" || b!="" || c!="")
+   {
+       cetak.innerHTML="Penyusutan = ("+a+" / "+b+") x 2 = "+c;
+   }
+}
+ function reset() {
+ form.perolehan.value="";
+ form.umur.value="";
+ form.total.value = "";
+ }
+ </script>
+</head>
+<body>
+	<div class="isi2">
+	<h1>Perhitungan Metode Reducing Balance</h1><br><br>
+<!--INPUT DENGAN RESIDU-->
+<center><table border="0">
+<tr>
+ <td><form id="form" name="form" onsubmit="return false">
+ Hasil Perolehan</td>
+ <td><input type=text name="perolehan" size=9></td></tr>
+ <tr>
+ 	<td>Umur Ekonomis</td>
+ <td><input name="umur" type="text" size="9" /></td></tr>
+ <tr>
+ <td>Hasil</td><td> <input type="text" value="" name="total" size="9" readonly></td></tr>
+ <tr><td align="right"><div class="frame">
+ <button class="custom-btn btn-3" name=submit onclick="hitung() || cetak1() || cetak2()">Hitung</button></td><td>
+ <button class="custom-btn btn-3" name=submit onclick="reset()">Clear</button></div></td></tr>
+ </form></center></table><hr>
+ <p id="cetak1"></p>
+ <p id="cetak2"></p>
+
+</body>
+</div>
+</html>
